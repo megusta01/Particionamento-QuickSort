@@ -1,7 +1,7 @@
 import { quickSortHoare } from "./quickSortHoare.js";
 import { quickSortLomuto } from "./quickSortLomuto.js";
 
-class App {
+class Run {
     // Função para medir o tempo de execução de cada algoritmo
     static measureTime(partitionMethod, sortingFunction, arr) {
         const startTime = process.hrtime.bigint();
@@ -46,7 +46,7 @@ class App {
     }
 
     static main() {
-        const randomArray = App.generateRandomArray(200000);
+        const randomArray = Run.generateRandomArray(200000);
         const sizes = [100, 500, 1000, 5000, 30000, 80000, 100000, 150000, 200000];
 
         for (const size of sizes) {
@@ -54,16 +54,16 @@ class App {
             console.log(`\nTamanho do Subarray: ${size}`);
 
             // Teste com o método de particionamento de Tony Hoare
-            const hoareTime = App.measureTime("Hoare", new quickSortHoare(), subarray);
+            const hoareTime = Run.measureTime("Hoare", new quickSortHoare(), subarray);
 
             // Teste com o método de particionamento de Lomuto
-            const lomutoTime = App.measureTime("Lomuto", new quickSortLomuto(), subarray);
+            const lomutoTime = Run.measureTime("Lomuto", new quickSortLomuto(), subarray);
 
             // Identificar o método mais rápido
-            const fastestAlgorithm = App.findFastestAlgorithm(hoareTime, lomutoTime);
+            const fastestAlgorithm = Run.findFastestAlgorithm(hoareTime, lomutoTime);
             console.log(`O método mais rápido foi: ${fastestAlgorithm}`);
         }
     }
 }
 
-App.main();
+Run.main();
