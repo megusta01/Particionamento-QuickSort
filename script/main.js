@@ -16,8 +16,8 @@ class Run {
             ? sortingFunction.getTrocas()
             : sortingFunction.getTrocas();
 
-        console.log(`${partitionMethod}: ${formattedTime} milissegundos`);
-        console.log(`Quantidade de trocas: ${trocas}`);
+        console.log(`${partitionMethod}: ${formattedTime} ms`);
+        console.log(`Qtd trocas: ${trocas}`);
 
         return timeTaken;
     }
@@ -51,7 +51,7 @@ class Run {
 
         for (const size of sizes) {
             const subarray = randomArray.slice(0, size);
-            console.log(`\nTamanho do Subarray: ${size}`);
+            console.log(`\nTam. Subarray: ${size}`);
 
             // Teste com o método de particionamento de Tony Hoare
             const hoareTime = Run.measureTime("Hoare", new quickSortHoare(), subarray);
@@ -61,7 +61,7 @@ class Run {
 
             // Identificar o método mais rápido
             const fastestAlgorithm = Run.findFastestAlgorithm(hoareTime, lomutoTime);
-            console.log(`O método mais rápido foi: ${fastestAlgorithm}`);
+            console.log(`Método mais eficiente: ${fastestAlgorithm}`);
         }
     }
 }
